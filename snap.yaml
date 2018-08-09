@@ -17,7 +17,7 @@ summary: A hello-world program using the Fedora base snap
 description: |
     This snap contains is meant for education about the structure of snaps and
     about the application of base snaps. The program is explicitly selecting
-    the fedora29 base snap as its root file-system. 
+    the fedora29 base snap as its root file-system.
 
 # License declared as an SPDX expression or the word "Proprietary".
 # See https://spdx.org/licenses/ for the full list.
@@ -35,7 +35,7 @@ grade: stable
 #
 # Classic confinement (like classic rpm or deb packages) is explicitly granted
 # during public approval process on forum.snapcraft.io. Installation of
-# packages using classic confinement, requires explicit user consent. 
+# packages using classic confinement, requires explicit user consent.
 confinement: strict
 
 # The base snap declaration instructs snapd to use a given snap as the root
@@ -67,3 +67,11 @@ apps:
         # other properties to set (e.g. to define a background service, timer,
         # environment, restart behavior, etc).
         command: usr/bin/hello-fedora
+    goodbye:
+        # Normally each snap has one primary application that has the same name
+        # as the snap itself. All additional applications are exposed as snap-
+        # name.app-name. The user or the app developer can use aliases (snap
+        # alias) to gain access to additional top-level names. Because this
+        # involves interaction with the store it is used as a way to avoid name
+        # clashes between snap packages.
+        command: usr/bin/hello-fedora --bye
