@@ -12,7 +12,7 @@
 # When used along with a "rich" snap package build system (snapcraft) it can be
 # derived from appstream meta-data to avoid duplication.
 name: hello-fedora
-version: 0.2
+version: @VERSION@
 summary: A hello-world program using the Fedora base snap
 description: |
     This snap contains is meant for education about the structure of snaps and
@@ -50,7 +50,7 @@ base: fedora29
 # The architectures field lists the architectures that are compatible with this
 # snap. Typically this is just one architecture (using the Debian naming
 # scheme) or the word "all" for arch-independent snaps.
-architectures: [amd64]
+architectures: [@ARCH@]
 
 # Apps "export" applications and services from the package to the host system.
 # By default only a single application, named exactly the same as the snap
