@@ -1,0 +1,69 @@
+# The basic meta-data about the snap, the name, version and some text.
+#
+# The name is constrained to typical ASCII alphanumeric characters and dashes.
+# The version is similar and can be freely changed between releases. Snapd
+# doesn't use versions as update guide, instead users install a snap from a
+# given "channel" (e.g. latest/stable) and will follow whatever is published in
+# that channel. Version is purely informational.
+#
+# The summary and description can be searched for in various places in the
+# store and is used throughout snapd and gnome-software.
+#
+# When used along with a "rich" snap package build system (snapcraft) it can be
+# derived from appstream meta-data to avoid duplication.
+name: hello-fedora
+version: 0.1
+summary: A hello-world program using the Fedora base snap
+description: |
+    This snap contains is meant for education about the structure of snaps and
+    about the application of base snaps. The program is explicitly selecting
+    the fedora29 base snap as its root file-system. 
+
+# License declared as an SPDX expression or the word "Proprietary".
+# See https://spdx.org/licenses/ for the full list.
+license: BSD-3-Clause
+
+# Grade constraints publishing of "under development" snaps to the stable
+# channel in the snap store. Here we say the grade is "stable" because this is
+# a complete example.
+grade: stable
+
+# Confinement instructs the store and snapd how to install and execute the
+# package. Out of available choices we have "strict" (use enforcing
+# confinement), "devmode" (use non-enforcing confinement) and "classic"
+# (disable confinement).
+#
+# Classic confinement (like classic rpm or deb packages) is explicitly granted
+# during public approval process on forum.snapcraft.io. Installation of
+# packages using classic confinement, requires explicit user consent. 
+confinement: strict
+
+# The base snap declaration instructs snapd to use a given snap as the root
+# file-system during execution of this snap. Here we use the experimental
+# "fedora29" snap. Base snaps must provide compatible ABI for the lifetime of
+# the snap and should offer security updates. Publishing of a base snap in the
+# store requires vetting and a public approval process similar to that for
+# classic snaps but is more strict. The "fedora29" snap is the first
+# non-specialized base snap added to the snappy ecosystem.
+base: fedora29
+
+# The architectures field lists the architectures that are compatible with this
+# snap. Typically this is just one architecture (using the Debian naming
+# scheme) or the word "all" for arch-independent snaps.
+architectures: [amd64]
+
+# Apps "export" applications and services from the package to the host system.
+# By default only a single application, named exactly the same as the snap
+# itself, is exported directly. Other applications are exported as suffixes of
+# the snap name, e.g. a "goodbye" application added here would be called
+# "hello-fedora.goodbye".
+#
+# Using a process similar for classic confinement, outlined above, publishers
+# can request additional top-level names for their snaps. Users can explicitly
+# alias any snap command as a top-level command for convince.
+apps:
+    hello-fedora:
+        # Each application must define a command to execute but there are many
+        # other properties to set (e.g. to define a background service, timer,
+        # environment, restart behavior, etc).
+        command: usr/bin/hello-fedora
