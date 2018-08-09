@@ -12,7 +12,7 @@
 # When used along with a "rich" snap package build system (snapcraft) it can be
 # derived from appstream meta-data to avoid duplication.
 name: hello-fedora
-version: 0.1
+version: 0.2
 summary: A hello-world program using the Fedora base snap
 description: |
     This snap contains is meant for education about the structure of snaps and
