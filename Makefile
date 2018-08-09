@@ -17,10 +17,13 @@ install:: hello-fedora | $(DESTDIR)/usr/bin
 install:: snap.yaml | $(DESTDIR)/meta
 	install -m 0644 $< $|/$^
 
+install:: LICENSE | $(DESTDIR)/usr/share/licenses/hello-fedora
+	install -m 0644 $< $|/$^
+
 .PHONY: snap
 snap: hello-fedora_0.1_amd64.snap
 
-$(addprefix $(DESTDIR),/usr/bin /meta):
+$(addprefix $(DESTDIR),/usr/bin /meta /usr/share/licenses/hello-fedora):
 	install -d $@
 
 # This rule builds the application snap package from a tree of prepared files
