@@ -15,9 +15,9 @@ name: hello-fedora
 version: @VERSION@
 summary: A hello-world program using the Fedora base snap
 description: |
-    This snap contains is meant for education about the structure of snaps and
-    about the application of base snaps. The program is explicitly selecting
-    the fedora29 base snap as its root file-system.
+    What this snap contains is meant for education about the structure of snaps
+    and about the use of base snaps. The program is explicitly selecting the
+    fedora29 base snap as its root file-system.
 
 # License declared as an SPDX expression or the word "Proprietary".
 # See https://spdx.org/licenses/ for the full list.
