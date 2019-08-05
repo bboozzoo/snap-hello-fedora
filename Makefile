@@ -31,7 +31,7 @@ install:: LICENSE | $(DESTDIR)/usr/share/licenses/hello-fedora
 	install -m 0644 $< $|/$^
 
 .PHONY: snap
-snap: hello-fedora.$(version).$(arch).snap
+snap: hello-fedora_$(version)_$(arch).snap
 
 $(addprefix $(DESTDIR),/usr/bin /meta /usr/share/licenses/hello-fedora):
 	install -d $@
@@ -44,6 +44,6 @@ $(addprefix $(DESTDIR),/usr/bin /meta /usr/share/licenses/hello-fedora):
 # directory.  The "prime" directory is can be also used to play with the snap
 # without compressing and installing it using the "snap try" command.
 .ONESHELL: snap
-hello-fedora.$(version).$(arch).snap: hello-fedora.c snap.yaml.in LICENSE Makefile
+hello-fedora_$(version)_$(arch).snap: hello-fedora.c snap.yaml.in LICENSE Makefile
 	$(MAKE) install DESTDIR=prime/
 	mksquashfs ./prime $@ -noappend -comp xz -no-xattrs -no-fragments -all-root
