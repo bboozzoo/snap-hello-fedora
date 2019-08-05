@@ -1,4 +1,4 @@
-version=0.2
+version=0.3
 # The native architecture
 arch:=$(shell uname -m)
 

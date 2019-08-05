@@ -17,7 +17,7 @@ summary: A hello-world program using the Fedora base snap
 description: |
     What this snap contains is meant for education about the structure of snaps
     and about the use of base snaps. The program is explicitly selecting the
-    fedora29 base snap as its root file-system.
+    fedora30 base snap as its root file-system.
 
 # License declared as an SPDX expression or the word "Proprietary".
 # See https://spdx.org/licenses/ for the full list.
@@ -40,12 +40,12 @@ confinement: strict
 
 # The base snap declaration instructs snapd to use a given snap as the root
 # file-system during execution of this snap. Here we use the experimental
-# "fedora29" snap. Base snaps must provide compatible ABI for the lifetime of
+# "fedora30" snap. Base snaps must provide compatible ABI for the lifetime of
 # the snap and should offer security updates. Publishing of a base snap in the
 # store requires vetting and a public approval process similar to that for
-# classic snaps but is more strict. The "fedora29" snap is the first
+# classic snaps but is more strict. The "fedora30" snap is the first
 # non-specialized base snap added to the snappy ecosystem.
-base: fedora29
+base: fedora30
 
 # The architectures field lists the architectures that are compatible with this
 # snap. Typically this is just one architecture (using the Debian naming
